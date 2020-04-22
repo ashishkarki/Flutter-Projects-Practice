@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   material_design_icons_flutter: ^4.0.5045
+  math_expressions: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -61,12 +62,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: RobotoMono
+      fonts:
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-BoldItalic.ttf
+          style: italic
+          weight: 700
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

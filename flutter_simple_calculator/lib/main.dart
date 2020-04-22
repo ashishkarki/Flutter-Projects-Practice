@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import './home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+    (value) => runApp(
+      MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,6 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'RobotoMono-BoldItalic',
+      ),
       home: HomePage(),
     );
   }
