@@ -1,22 +1,31 @@
-const List<String> buttonTexts = [
-  'C',
-  'DEL',
+const List<String> operatorButtonTexts = [
   '%',
   '/',
+  '*',
+  '-',
+  '+',
+  '=',
+];
+
+final List<String> buttonTexts = [
+  'C',
+  'DEL',
+  operatorButtonTexts[0],
+  operatorButtonTexts[1],
   '9',
   '8',
   '7',
-  '*',
+  operatorButtonTexts[2],
   '6',
   '5',
   '4',
-  '-',
+  operatorButtonTexts[3],
   '3',
   '2',
   '1',
-  '+',
+  operatorButtonTexts[4],
   '0',
   '.',
   'ANS',
-  '=',
+  operatorButtonTexts[5],
 ];
