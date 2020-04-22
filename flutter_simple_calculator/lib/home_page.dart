@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 import './calculator_button.dart';
 import './constants.dart' as constants;
@@ -17,8 +18,11 @@ class _HomePageState extends State<HomePage> {
     return constants.operatorButtonTexts.contains(symbol);
   }
 
-  void updateUserQuery(
-      {String buttonText = '', bool reset = false, bool delete = false}) {
+  void updateUserQuery({
+    String buttonText = '',
+    bool reset = false,
+    bool delete = false,
+  }) {
     setState(
       () {
         if (reset) {
@@ -30,6 +34,32 @@ class _HomePageState extends State<HomePage> {
         }
       },
     );
+  }
+
+  void updateResultStr(String msg) {
+    setState(() {
+      result = msg;
+    });
+  }
+
+  void equalClicked() {
+    Parser expressionParser = Parser();
+
+    try {
+      Expression expression = expressionParser.parse(userQuery);
+
+      final contextModel = ContextModel();
+      final double evaluatedvalue =
+          expression.evaluate(EvaluationType.REAL, contextModel);
+
+      updateResultStr(evaluatedvalue.toString());
+    } on StateError catch (stateError) {
+      print('stateError - ${stateError.message}');
+      updateResultStr('${stateError.message}');
+    } on ArgumentError catch (argError) {
+      print('argError - ${argError.message}');
+      updateResultStr('${argError.message}');
+    }
   }
 
   @override
@@ -93,36 +123,54 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSpacing: 0.1,
               ),
               itemBuilder: (BuildContext ctx, int itemIdx) {
-                if (itemIdx == 0) {
+                final buttonTxt = buttonTexts[itemIdx];
+                // if (itemIdx == 0) {
+                if (buttonTxt == 'C') {
+                  // Clear 'C' button
                   return CalculatorButton(
                     onButtonTap: () {
                       updateUserQuery(reset: true);
                     },
                     textColor: Colors.white,
                     backgroundColor: Colors.lightGreen,
-                    buttonText: buttonTexts[itemIdx],
+                    buttonText: buttonTxt,
                   );
-                } else if (itemIdx == 1) {
+                }
+                // else if (itemIdx == 1) {
+                else if (buttonTxt == 'DEL') {
                   return CalculatorButton(
                     onButtonTap: () {
                       updateUserQuery(delete: true);
                     },
                     textColor: Colors.white,
                     backgroundColor: Colors.red,
-                    buttonText: buttonTexts[itemIdx],
+                    buttonText: buttonTxt,
+                  );
+                } else if (buttonTxt == '=') {
+                  return CalculatorButton(
+                    onButtonTap: () {
+                      equalClicked();
+                    },
+                    textColor: isOperator(buttonTxt)
+                        ? Colors.white
+                        : Colors.deepPurple,
+                    backgroundColor: isOperator(buttonTxt)
+                        ? Colors.deepPurple[400]
+                        : Colors.deepPurple[100],
+                    buttonText: buttonTxt,
                   );
                 } else {
                   return CalculatorButton(
                     onButtonTap: () {
-                      updateUserQuery(buttonText: buttonTexts[itemIdx]);
+                      updateUserQuery(buttonText: buttonTxt);
                     },
-                    textColor: isOperator(buttonTexts[itemIdx])
+                    textColor: isOperator(buttonTxt)
                         ? Colors.white
                         : Colors.deepPurple,
-                    backgroundColor: isOperator(buttonTexts[itemIdx])
+                    backgroundColor: isOperator(buttonTxt)
                         ? Colors.deepPurple[400]
                         : Colors.deepPurple[100],
-                    buttonText: buttonTexts[itemIdx],
+                    buttonText: buttonTxt,
                   );
                 }
               },

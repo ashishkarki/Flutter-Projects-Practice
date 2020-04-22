@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   material_design_icons_flutter: ^4.0.5045
+  math_expressions: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,10 +65,10 @@ flutter:
   fonts:
     - family: RobotoMono
       fonts:
-        - asset: assets/fonts/RobotoMono/RobotoMono-Regular.ttf
-        - asset: assets/fonts/RobotoMono/RobotoMono-Bold.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-Bold.ttf
           weight: 700
-        - asset: assets/fonts/RobotoMono/RobotoMono-BoldItalic.ttf
+        - asset: assets/fonts/Roboto_Mono/RobotoMono-BoldItalic.ttf
           style: italic
           weight: 700
   #   - family: Trajan Pro
