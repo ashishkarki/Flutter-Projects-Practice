@@ -10,11 +10,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> buttonTexts = constants.buttonTexts;
-  var userQuery = '0 + 0';
-  var result = '0';
+  var userQuery = '';
+  var result = '';
 
   bool isOperator(String symbol) {
     return constants.operatorButtonTexts.contains(symbol);
+  }
+
+  void updateUserQuery(
+      {String buttonText = '', bool reset = false, bool delete = false}) {
+    setState(
+      () {
+        if (reset) {
+          userQuery = '';
+        } else if (delete) {
+          userQuery = userQuery.substring(0, userQuery.length - 1);
+        } else {
+          userQuery += buttonText;
+        }
+      },
+    );
   }
 
   @override
@@ -43,16 +58,23 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // SizedBox(
-                  //   height: 30,
-                  // ),
                   Container(
-                    child: Text(userQuery),
+                    child: Text(
+                      userQuery,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.fromLTRB(20, 30, 20, 1),
                   ),
                   Container(
-                    child: Text(result),
+                    child: Text(
+                      result,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
                     alignment: Alignment.centerRight,
                     padding: const EdgeInsets.fromLTRB(20, 1, 20, 2),
                   ),
@@ -73,18 +95,27 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext ctx, int itemIdx) {
                 if (itemIdx == 0) {
                   return CalculatorButton(
+                    onButtonTap: () {
+                      updateUserQuery(reset: true);
+                    },
                     textColor: Colors.white,
                     backgroundColor: Colors.lightGreen,
                     buttonText: buttonTexts[itemIdx],
                   );
                 } else if (itemIdx == 1) {
                   return CalculatorButton(
+                    onButtonTap: () {
+                      updateUserQuery(delete: true);
+                    },
                     textColor: Colors.white,
                     backgroundColor: Colors.red,
                     buttonText: buttonTexts[itemIdx],
                   );
                 } else {
                   return CalculatorButton(
+                    onButtonTap: () {
+                      updateUserQuery(buttonText: buttonTexts[itemIdx]);
+                    },
                     textColor: isOperator(buttonTexts[itemIdx])
                         ? Colors.white
                         : Colors.deepPurple,
