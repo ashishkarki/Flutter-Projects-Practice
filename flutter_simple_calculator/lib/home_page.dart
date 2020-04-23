@@ -52,7 +52,19 @@ class _HomePageState extends State<HomePage> {
       final double evaluatedvalue =
           expression.evaluate(EvaluationType.REAL, contextModel);
 
-      updateResultStr(evaluatedvalue.toString());
+      String evaluatedValueStr = evaluatedvalue.toStringAsFixed(4);
+      print(double.parse(evaluatedValueStr.split('.')[1]));
+      if (double.parse(evaluatedValueStr.split('.')[1]) == 0.0) {
+        // if this evaluated value is rather an integer with decimal place equals to 0/0.0
+        evaluatedValueStr =
+            evaluatedValueStr.substring(0, evaluatedValueStr.indexOf('.'));
+      }
+
+      updateResultStr(evaluatedValueStr);
+
+      // clear the user query and show the result value
+      updateUserQuery(reset: true);
+      updateUserQuery(buttonText: result);
     } on StateError catch (stateError) {
       print('stateError - ${stateError.message}');
       updateResultStr('${stateError.message}');
