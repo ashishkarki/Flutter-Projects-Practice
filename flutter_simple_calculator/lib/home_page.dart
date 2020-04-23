@@ -142,6 +142,7 @@ class _HomePageState extends State<HomePage> {
                   return CalculatorButton(
                     onButtonTap: () {
                       updateUserQuery(reset: true);
+                      updateResultStr('');
                     },
                     textColor: Colors.white,
                     backgroundColor: Colors.lightGreen,
@@ -163,12 +164,8 @@ class _HomePageState extends State<HomePage> {
                     onButtonTap: () {
                       equalClicked();
                     },
-                    textColor: isOperator(buttonTxt)
-                        ? Colors.white
-                        : Colors.deepPurple,
-                    backgroundColor: isOperator(buttonTxt)
-                        ? Colors.deepPurple[400]
-                        : Colors.deepPurple[100],
+                    textColor: Colors.white,
+                    backgroundColor: Colors.deepPurple[400],
                     buttonText: buttonTxt,
                   );
                 } else {
