@@ -23,15 +23,15 @@ class CalculatorButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
           child: Container(
             color: backgroundColor,
-            height: 5,
-            width: 5,
+            // height: 5,
+            // width: 5,
             child: Center(
               child: Text(
                 buttonText,
                 style: TextStyle(
                   color: textColor,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  //fontWeight: FontWeight.bold,
                 ),
               ),
             ),

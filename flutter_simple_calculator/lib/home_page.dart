@@ -90,45 +90,45 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.lightBlue[50],
       body: Column(
         children: [
-          Container(
+          Expanded(
             // gives whatever space is remaining in this Column to its child
-            child: Container(
-              height: isPotrait() // But: landscape is disabled in main.dart
-                  ? (viewPortHeight() * 0.20)
-                  : (viewPortHeight() * 0.4),
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    child: Text(
-                      userQuery,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+            // child: Container(
+            //   height: isPotrait() // But: landscape is disabled in main.dart
+            //       ? (viewPortHeight() * 0.20)
+            //       : (viewPortHeight() * 0.4),
+            //   width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Text(
+                    userQuery,
+                    style: TextStyle(
+                      fontSize: 20,
                     ),
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.fromLTRB(20, 30, 20, 1),
                   ),
-                  Container(
-                    child: Text(
-                      result,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.fromLTRB(20, 30, 20, 1),
+                ),
+                Container(
+                  child: Text(
+                    result,
+                    style: TextStyle(
+                      fontSize: 20,
                     ),
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.fromLTRB(20, 1, 20, 2),
                   ),
-                ],
-              ),
+                  alignment: Alignment.centerRight,
+                  padding: const EdgeInsets.fromLTRB(20, 1, 20, 2),
+                ),
+              ],
             ),
           ),
+          // ),
           Expanded(
-            //flex: 2,
+            flex: 3,
             // gives whatever space is remaining in this Column to its child
             child: GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              //physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 crossAxisSpacing: 0.1,
