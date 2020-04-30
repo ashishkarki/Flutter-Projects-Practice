@@ -3,6 +3,7 @@ import 'package:flutter_time_tracker_app/app/sign_in/sign_in_button.dart';
 
 import '../../common_widgets/custom_raised_button.dart';
 import '../../common-properties.dart';
+import 'social_sign_in_button.dart';
 
 class SignInPage extends StatelessWidget {
   @override
@@ -35,7 +36,8 @@ class SignInPage extends StatelessWidget {
           SizedBox(
             height: 50.0,
           ),
-          SignInButton(
+          SocialSignInButton(
+            assetName: 'assets/images/google-logo.png',
             text: 'Sign in with Google',
             textColor: Colors.black87,
             color: Colors.white,
@@ -44,7 +46,8 @@ class SignInPage extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          SignInButton(
+          SocialSignInButton(
+            assetName: 'assets/images/facebook-logo.png',
             text: 'Sign in with Facebook',
             textColor: Colors.white,
             color: Color(0xFF334D92),
@@ -80,49 +83,6 @@ class SignInPage extends StatelessWidget {
             color: Colors.lime.shade300,
             onPressed: () {},
           ),
-          /*
-          Container(
-            // margin: const EdgeInsets.symmetric(
-            //   horizontal: 20.0,
-            //   vertical: 5.0,
-            // ),
-            child: RaisedButton(
-              onPressed: () {},
-              color: Colors.white,
-              child: ListTile(
-                leading: Icon(Icons.g_translate),
-                title: Text('Sign in with Google'),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 5.0,
-            ),
-            child: RaisedButton(
-              onPressed: () {},
-              color: Colors.blue.shade900,
-              child: ListTile(
-                leading: Icon(Icons.face),
-                title: Text('Sign in with Facebook'),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 5.0,
-            ),
-            child: RaisedButton(
-              onPressed: () {},
-              color: Colors.green.shade900,
-              child: ListTile(
-                leading: Icon(Icons.email),
-                title: Text('Sign in with Email'),
-              ),
-            ),
-          ),*/
         ],
       ),
     );
