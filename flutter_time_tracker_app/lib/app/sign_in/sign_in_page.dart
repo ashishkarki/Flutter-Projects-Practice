@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_time_tracker_app/app/sign_in/sign_in_button.dart';
 
+import '../../common_widgets/custom_raised_button.dart';
 import '../../common-properties.dart';
 
 class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
         title: Text(APP_TITLE_STRING),
         elevation: 2.0,
@@ -30,35 +33,54 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           SizedBox(
+            height: 50.0,
+          ),
+          SignInButton(
+            text: 'Sign in with Google',
+            textColor: Colors.black87,
+            color: Colors.white,
+            onPressed: () {},
+          ),
+          SizedBox(
             height: 10.0,
           ),
-          Container(
-            color: Colors.blue,
-            child: SizedBox(
-              height: 100,
+          SignInButton(
+            text: 'Sign in with Facebook',
+            textColor: Colors.white,
+            color: Color(0xFF334D92),
+            onPressed: () {},
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          SignInButton(
+            text: 'Sign in with Email',
+            textColor: Colors.white,
+            color: Colors.teal.shade700,
+            onPressed: () {},
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            'or',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
             ),
           ),
           SizedBox(
             height: 10.0,
           ),
-          Container(
-            color: Colors.red,
-            child: SizedBox(
-              height: 100,
-            ),
+          SignInButton(
+            text: 'Go Anonymous',
+            textColor: Colors.black,
+            color: Colors.lime.shade300,
+            onPressed: () {},
           ),
-          /*Container(
-            margin: const EdgeInsets.all(20.0),
-            padding: const EdgeInsets.all(20.0),
-            alignment: Alignment.center,
-            child: Text(
-              SIGN_IN_STRING,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30.0,
-              ),
-            ),
-          ),
+          /*
           Container(
             // margin: const EdgeInsets.symmetric(
             //   horizontal: 20.0,
