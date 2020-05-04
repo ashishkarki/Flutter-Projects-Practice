@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eBook_app/common_values.dart';
 import 'package:flutter_eBook_app/widgets/book_rating.dart';
+import 'package:flutter_eBook_app/widgets/reading_list_card.dart';
+import 'package:flutter_eBook_app/widgets/two_side_rounded_button.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -43,110 +45,56 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Container(
-              height: 250,
-              width: 200,
-              child: Stack(
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
                 children: [
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 220,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(29),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset(0, 10),
-                            blurRadius: 33,
-                            color: kShadowColor,
-                          ),
-                        ],
-                      ),
-                    ),
+                  ReadingListCard(
+                    imageName: 'assets/images/book-1.png',
+                    title: 'Crushing & Influence',
+                    authorName: 'Gary Venchuk',
+                    rating: 4.6,
                   ),
-                  Image.asset('assets/images/book-1.png'),
-                  Positioned(
-                    top: 35,
-                    right: 10,
-                    child: Column(
+                  ReadingListCard(
+                    imageName: 'assets/images/book-2.png',
+                    title: 'Top Ten Business Hacks',
+                    authorName: 'Herman Joel',
+                    rating: 4.4,
+                  ),
+                  // to give bit more space on the right
+                  SizedBox(
+                    width: 30.0,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      style: Theme.of(context).textTheme.headline4,
                       children: [
-                        IconButton(
-                          icon: Icon(Icons.favorite_border),
-                          onPressed: () {},
-                        ),
-                        BookRating(
-                          score: 4.6,
+                        TextSpan(text: 'Best of the '),
+                        TextSpan(
+                          text: 'day',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Positioned(
-                    top: 190,
-                    child: Container(
-                      height: 85,
-                      width: 200,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15, top: 5),
-                            child: RichText(
-                              text: TextSpan(
-                                style: TextStyle(color: kBlackColor),
-                                children: [
-                                  TextSpan(
-                                    text: 'Crushing & Influence\n',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'Gary Venchuk',
-                                    style: TextStyle(
-                                      color: kLightBlackColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          //Spacer(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 100,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 2,
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Details',
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 5),
-                                  decoration: BoxDecoration(
-                                    color: kBlackColor,
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(29),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    "Read",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 20),
+                    width: double.infinity,
+                    height: 130, //200
+                    child: Stack(
+                      children: [],
                     ),
                   ),
                 ],
