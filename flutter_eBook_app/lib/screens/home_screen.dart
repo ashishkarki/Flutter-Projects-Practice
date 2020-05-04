@@ -83,6 +83,72 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  Positioned(
+                    top: 190,
+                    child: Container(
+                      height: 85,
+                      width: 200,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, top: 5),
+                            child: RichText(
+                              text: TextSpan(
+                                style: TextStyle(color: kBlackColor),
+                                children: [
+                                  TextSpan(
+                                    text: 'Crushing & Influence\n',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Gary Venchuk',
+                                    style: TextStyle(
+                                      color: kLightBlackColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          //Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 100,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 2,
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Details',
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 5),
+                                  decoration: BoxDecoration(
+                                    color: kBlackColor,
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(29),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Read",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
