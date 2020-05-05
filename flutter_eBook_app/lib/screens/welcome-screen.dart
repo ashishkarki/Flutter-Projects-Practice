@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_eBook_app/screens/home_screen.dart';
 import 'package:flutter_eBook_app/widgets/rounded_button.dart';
 
-import '../common_values.dart';
-
-class WelcomeCreen extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);

@@ -32,9 +32,7 @@ class BookRating extends StatelessWidget {
             color: kIconColor,
             size: 25,
           ),
-          SizedBox(
-            height: 5,
-          ),
+          makeSpecifiedHeightBox(),
           Text(
             '$score',
             style: TextStyle(

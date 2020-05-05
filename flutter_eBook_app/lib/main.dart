@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
               displayColor: kBlackColor,
             ),
       ),
-      home: WelcomeCreen(),
+      home: WelcomeScreen(),
     );
   }
 }
