@@ -21,3 +21,20 @@ SizedBox makeSpecifiedWidthBox([double specifiedWth]) {
     width: specifiedWth ?? 5,
   );
 }
+
+void showMyAlert(BuildContext ctx, String myTitle) async {
+  return await showDialog(
+    context: ctx,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text(myTitle),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.done_outline),
+          onPressed: () {
+            Navigator.of(ctx).pop();
+          },
+        )
+      ],
+    ),
+  );
+}
